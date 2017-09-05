@@ -1,0 +1,27 @@
+#Given two strings, find the number of common characters between them.
+
+
+def commonCharacterCount(s1, s2):
+    L1 = list(s1)
+    L2 = list(s2)
+    subtotal = 0
+    counted = []
+
+    for i in L1:
+        if i not in L2:
+            L1.remove(i)
+    for x in L2:
+        if x not in L1:
+            L2.remove(x)
+
+    for item in L1:
+        if item not in counted:
+            if L1.count(item) > L2.count(item):
+                subtotal += L2.count(item)
+                counted.append(item)
+            if L2.count(item) >= L1.count(item):
+                subtotal += L1.count(item)
+                counted.append(item)
+
+
+    return subtotal
