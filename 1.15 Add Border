@@ -1,0 +1,15 @@
+#Given a rectangular matrix of characters, add a border of asterisks(*) to it.
+
+
+def addBorder(picture):
+
+    new_pic = []
+    x = len(new_pic[0])
+    
+    for item in picture:
+        new_pic.append('*' + item + '*')
+
+    new_pic.append('*' * x)
+    new_pic.insert(0, ('*' * x))
+    
+    return new_pic
