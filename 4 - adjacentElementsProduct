@@ -1,0 +1,13 @@
+
+
+
+def adjacentElementsProduct(inputArray):
+
+    prev = inputArray[0]
+    products = []
+
+    for num in inputArray[1: len(inputArray)]:
+        products.append(num * prev)
+        prev = num
+
+    return max(products)
