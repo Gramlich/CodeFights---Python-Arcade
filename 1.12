@@ -1,0 +1,19 @@
+# given a list - sort the big numbers, leave the -1s (trees) in the same place.
+
+
+def sortByHeight(a):
+    ordered = sorted(a)
+    tree_pos = []
+
+    for index, item in enumerate(a):
+        if item == -1:
+            tree_pos.append(index)
+
+    for x in a[::-1]:
+        if x == -1:
+            a.remove(x)
+
+    for pos in tree_pos:
+        ordered.insert(pos, -1)
+
+    return ordered
