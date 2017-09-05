@@ -1,0 +1,23 @@
+# A ticket number is considered lucky if the sum of the first half of the digits is equal to the sum of the second half.
+#Given a ticket number n, determine if it's lucky or not.
+
+
+
+def isLucky(n):
+
+    stang = str(n)
+    half = (len(stang) // 2)
+    s1 = stang[half:]
+    s2 = stang[:half]
+    subtotal_s1 = 0
+    subtotal_s2 = 0
+
+    for item in s1:
+        subtotal_s1 += int(item)
+    for item in s2:
+        subtotal_s2 += int(item)
+
+    if subtotal_s1 == subtotal_s2:
+        return True
+    else:
+        return False
