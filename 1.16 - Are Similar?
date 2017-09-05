@@ -1,0 +1,27 @@
+#Two arrays are called similar if one can be obtained from another by swapping at most one pair of elements in one of the arrays.
+
+#Given two arrays a and b, check whether they are similar.
+
+
+def areSimilar(a, b):
+    loc = 0
+    max = 0
+    
+    
+    while loc < len(a):
+        if a[loc] != b[loc]:
+            if a[loc] in b:
+                pos = 0
+                while pos < len(b):
+                    if b[pos] == a[loc]:
+                        if a[pos] == b[loc]:
+                            b[pos], b[loc] = b[loc], b[pos]
+                            break
+                    pos += 1
+            max += 1
+        loc += 1
+    if max > 1:
+        return False
+    
+    
+    return True
