@@ -1,0 +1,25 @@
+#given a string, check to see if it's a Palindrome.
+
+
+def checkPalindrome(inputString):
+
+  #check whether there's an even or odd amount of letters. If odd, find the middle and discard it.
+
+    if len(inputString) % 2 == 0:
+        second_half = inputString[:int(len(inputString) / 2)]
+        first_half = inputString[int(len(inputString) / 2):]
+    elif len(inputString) % 2 == 1:
+        second_half = inputString[:int(len(inputString) / 2)]
+        first_half = inputString[1+(int(len(inputString) / 2)):]
+
+    rev = []
+
+    for item in first_half[::-1]:
+        rev.append(item)
+
+  #compare reversed first half to the second half. If it's a palindrome, it's equal. 
+
+    if ''.join(rev) == second_half:
+        return True
+    else:
+        return False
