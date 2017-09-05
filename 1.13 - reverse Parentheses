@@ -1,0 +1,22 @@
+#given a string; reverse the characters within the parentheses. 
+
+def reverseParentheses(s):
+    result = []
+    original = list(s)
+
+    opened = 0
+    closed = 0
+
+    should_restart = True
+    while should_restart == True:
+        should_restart = False
+        for index, item in enumerate(original):
+            if item == '(':
+                opened = index
+            elif item == ')':
+                closed = index
+                original[opened:closed + 1] = original[closed - 1:opened:-1]
+                should_restart = True
+                break
+
+    return ''.join(original)
