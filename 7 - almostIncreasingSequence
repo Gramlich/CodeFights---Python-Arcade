@@ -1,0 +1,27 @@
+#Given a sequence of integers as an array:
+#Determine whether it is possible to obtain an increasing sequence by removing no more than one element from the array.
+
+
+
+def almostIncreasingSequence(sequence):
+    X = False
+    
+    if(len(sequence) < 3):
+        return True
+
+    if(sequence == sorted(sequence)):
+        if(len(sequence)==len(set(sequence))):
+            return True
+
+    Y = True
+    for i in range(len(sequence)):
+        if(Y and i < len(sequence)-1 and sequence[i] < sequence[i+1]):
+            Y = True
+            continue
+        holder_sequence = sequence[:i] + sequence[i+1:]
+        if(holder_sequence == sorted(holder_sequence)):
+            if(len(holder_sequence)==len(set(holder_sequence))):
+                X = True
+                break
+        Y = False
+    return X
