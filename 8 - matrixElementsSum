@@ -1,0 +1,21 @@
+#sum the array. If a zero is above a number, don't count it.
+
+
+def matrixElementsSum(matrix):
+
+    modArray = []
+    count = 0
+    subtotal = 0
+
+    while count < len(matrix[0]):
+        modArray.append([row[count] for row in matrix])
+        count+=1
+
+    for group in modArray:
+        for item in group:
+            if item == 0:
+                break
+            else:
+                subtotal += item
+
+    return subtotal
