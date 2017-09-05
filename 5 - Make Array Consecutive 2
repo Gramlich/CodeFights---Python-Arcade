@@ -1,0 +1,10 @@
+#given an array; find how many more numbers are needed to make the array consecutive.
+
+
+
+def makeArrayConsecutive2(statues):
+
+    x = max(statues) - min(statues) + 1
+    statues_needed = x - (len(statues))
+
+    return statues_needed
