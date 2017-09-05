@@ -1,0 +1,15 @@
+#Given an array of strings, return another array containing all of its longest strings.
+
+
+def allLongestStrings(inputArray):
+
+    longest = []
+
+    for item in inputArray:
+        longest.append(len(item))
+
+    lax = max(longest)
+
+    result = [stang for stang in inputArray if len(stang) == lax]
+
+    return result
