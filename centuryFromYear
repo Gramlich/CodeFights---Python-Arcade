@@ -1,0 +1,12 @@
+# Given a year; return the century it's in.
+
+
+def centuryFromYear(year):
+
+
+    if year % 100 != 0:
+        round = (year // 100) + 1
+    else:
+        round = year // 100
+
+    return round
