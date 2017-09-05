@@ -1,0 +1,24 @@
+#given length n - find area of shape. 
+
+
+
+def shapeArea(n):
+
+    midLen = 1
+    x = (n*2) - midLen
+    result = 0
+    count = 0
+
+    while midLen < (n*2):
+        if count > 0:
+            x = (n * 2) - midLen
+            result += x * 2
+            midLen += 2
+        if count == 0:
+            x = (n * 2) - midLen
+            result += x
+            midLen += 2
+            count += 1
+
+
+    return result
