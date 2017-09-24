@@ -1,0 +1,21 @@
+'''
+You are given an array of integers representing coordinates of obstacles situated on a straight line.
+Assume that you are jumping from the point with coordinate 0 to the right. 
+You are allowed only to make jumps of the same length represented by some integer.
+Find the minimal length of the jump enough to avoid all the obstacles.
+'''
+
+
+def avoidObstacles(inputArray):
+    t = max(inputArray) * 2
+    results = [x for x in range(2, t) if x not in inputArray]
+    final = []
+
+    for num in results:
+        if any(x % num == 0 for x in inputArray):
+            continue
+        else:
+            final.append(num)
+
+
+    return final[0]
