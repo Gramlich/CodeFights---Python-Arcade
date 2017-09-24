@@ -1,0 +1,48 @@
+'''
+An IP address is a numerical label assigned to each device (e.g., computer, printer)
+participating in a computer network that uses the Internet Protocol for communication. 
+There are two versions of the Internet protocol, and thus two versions of addresses. 
+One of them is the IPv4 address.
+
+IPv4 addresses are represented in dot-decimal notation, 
+which consists of four decimal numbers, each ranging from 0 to 255, 
+separated by dots, e.g., 172.16.254.1.
+
+Given a string, find out if it satisfies the IPv4 address naming rules.
+'''
+
+
+
+def isIPv4Address(strng):
+
+    if strng.count('.') != 3:
+        return False
+    
+    prev = strng[0]
+    
+    if strng[0] == '.':
+        return False
+    
+    for x in strng[1:]:
+        if prev + x == '.' + '.':
+            return False
+        else:
+            prev = x
+
+    ip = strng.split('.')
+
+    prev = None
+
+    if len(ip) == 4:
+        for num in ip:
+            for i in num:
+                if i.isdigit() == False:
+                    return False
+                if num[0] == '0' and i != num:
+                    return False
+            if int(num) >= 256:
+                return False
+            if int(num) > 0:
+                continue
+
+    return True
