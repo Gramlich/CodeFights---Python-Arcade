@@ -1,0 +1,40 @@
+#Given a string, find out if its characters can be rearranged to form a palindrome.
+
+
+
+def palindromeRearranging(inputString):
+    if len(inputString) == 0:
+        return False
+
+    odd = 0
+    unique = []
+
+    for x in inputString:
+        if inputString.count(x) % 2 == 1:
+            if x not in unique:
+                unique.append(x)
+
+    if len(unique) == 1:
+        return True
+
+    if len(inputString) % 2 == 1:
+        for i in inputString:
+            if odd > 1:
+                return False
+            if inputString.count(i) == 1:
+                inputString.replace(i, '')
+                odd +=1
+            elif inputString.count(i) % 2 == 0:
+                continue
+            else:
+                return False
+
+
+    if len(inputString) % 2 == 0:
+        for i in inputString:
+            if inputString.count(i) % 2 == 0:
+                continue
+            else:
+                return False
+
+    return True
