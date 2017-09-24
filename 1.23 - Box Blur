@@ -1,0 +1,38 @@
+'''
+Last night you had to study, but decided to party instead. 
+Now there is a black and white photo of you that is about to go viral. 
+You cannot let this ruin your reputation, so you want to apply box blur algorithm to the photo to hide its content.
+
+The algorithm works as follows: 
+Each pixel x in the resulting image has a value equal to the average value of the input image pixels
+values from the 3 × 3 square with the center at x. A
+ll pixels at the edges are cropped.
+
+As pixel's value is an integer, all fractions should be rounded down.
+'''
+
+
+def boxBlur(image):
+
+    result = []
+    finale = []
+    count = 0
+
+    for box, sub in enumerate(image[1:len(image) - 1]):
+        for pos, num in enumerate(sub[1:len(sub) - 1]):
+            top = image[box][pos:pos + 3]
+            mid = image[box + 1][pos:pos + 3]
+            bottom = image[box + 2][pos:pos + 3]
+            result.append(sum(top + mid + bottom) // 9)
+
+    x = len(image[0]) - 2
+    y = len(image) - 2
+    print(x)
+    print(y)
+
+    if y >= 2:
+        for i in range(0, len(result), x):
+            finale.append(result[i:i+x])
+        return finale
+
+    return [result]
