@@ -1,0 +1,16 @@
+#You are given a two-digit integer n. Return the sum of its digits.
+
+
+
+def addTwoDigits(n):
+
+    stang = str(n)
+    x = stang[0]
+    y = stang[1]
+
+    t = int(x)
+    r = int(y)
+    
+    return t + r
+    
+    
